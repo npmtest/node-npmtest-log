@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-log/log/lib/log.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-log/node_modules/log/lib/log.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-log">npmtest-log (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-log/log/lib/log.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-log/node_modules/log/lib/log.js</span></h1>
     <h2>
         
         Statements: <span class="metric">28.26% <small>(13 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-log/log/lib/</a> » log.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-log/node_modules/log/lib/</a> &#187; log.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -738,11 +740,11 @@ var EventEmitter = require('events').EventEmitter;
  * @api public
  */
 &nbsp;
-var Log = exports = module.exports = <span class="fstat-no" title="function not covered">function Log(level, stream){</span>
-<span class="cstat-no" title="statement not covered">  if ('string' == typeof level) <span class="cstat-no" title="statement not covered">level = exports[level.toUpperCase()];</span></span>
-<span class="cstat-no" title="statement not covered">  this.level = level || exports.DEBUG;</span>
-<span class="cstat-no" title="statement not covered">  this.stream = stream || process.stdout;</span>
-<span class="cstat-no" title="statement not covered">  if (this.stream.readable) <span class="cstat-no" title="statement not covered">this.read();</span></span>
+var Log = exports = module.exports = <span class="fstat-no" title="function not covered" >function Log(level, stream){</span>
+<span class="cstat-no" title="statement not covered" >  if ('string' == typeof level) <span class="cstat-no" title="statement not covered" >level = exports[level.toUpperCase()];</span></span>
+<span class="cstat-no" title="statement not covered" >  this.level = level || exports.DEBUG;</span>
+<span class="cstat-no" title="statement not covered" >  this.stream = stream || process.stdout;</span>
+<span class="cstat-no" title="statement not covered" >  if (this.stream.readable) <span class="cstat-no" title="statement not covered" >this.read();</span></span>
 };
 &nbsp;
 /**
@@ -821,35 +823,35 @@ Log.prototype = {
    * @api public
    */
 &nbsp;
-  read: <span class="fstat-no" title="function not covered">function(){</span>
-<span class="cstat-no" title="statement not covered">    var buf = ''</span>
+  read: <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >    var buf = ''</span>
       , self = this
       , stream = this.stream;
 &nbsp;
-<span class="cstat-no" title="statement not covered">    stream.setEncoding('utf8');</span>
-<span class="cstat-no" title="statement not covered">    stream.on('data', <span class="fstat-no" title="function not covered">function(chunk){</span></span>
-<span class="cstat-no" title="statement not covered">      buf += chunk;</span>
-<span class="cstat-no" title="statement not covered">      if ('\n' != buf[buf.length - 1]) <span class="cstat-no" title="statement not covered">return;</span></span>
-<span class="cstat-no" title="statement not covered">      buf.split('\n').map(<span class="fstat-no" title="function not covered">function(line){</span></span>
-<span class="cstat-no" title="statement not covered">        if (!line.length) <span class="cstat-no" title="statement not covered">return;</span></span>
-<span class="cstat-no" title="statement not covered">        try {</span>
-<span class="cstat-no" title="statement not covered">          var captures = line.match(/^\[([^\]]+)\] (\w+) (.*)/);</span>
-<span class="cstat-no" title="statement not covered">          var obj = {</span>
+<span class="cstat-no" title="statement not covered" >    stream.setEncoding('utf8');</span>
+<span class="cstat-no" title="statement not covered" >    stream.on('data', <span class="fstat-no" title="function not covered" >function(chunk){</span></span>
+<span class="cstat-no" title="statement not covered" >      buf += chunk;</span>
+<span class="cstat-no" title="statement not covered" >      if ('\n' != buf[buf.length - 1]) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >      buf.split('\n').map(<span class="fstat-no" title="function not covered" >function(line){</span></span>
+<span class="cstat-no" title="statement not covered" >        if (!line.length) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" >          var captures = line.match(/^\[([^\]]+)\] (\w+) (.*)/);</span>
+<span class="cstat-no" title="statement not covered" >          var obj = {</span>
               date: new Date(captures[1])
             , level: exports[captures[2]]
             , levelString: captures[2]
             , msg: captures[3]
           };
-<span class="cstat-no" title="statement not covered">          self.emit('line', obj);</span>
+<span class="cstat-no" title="statement not covered" >          self.emit('line', obj);</span>
         } catch (err) {
           // Ignore
         }
       });
-<span class="cstat-no" title="statement not covered">      buf = '';</span>
+<span class="cstat-no" title="statement not covered" >      buf = '';</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered">    stream.on('end', <span class="fstat-no" title="function not covered">function(){</span></span>
-<span class="cstat-no" title="statement not covered">      self.emit('end');</span>
+<span class="cstat-no" title="statement not covered" >    stream.on('end', <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >      self.emit('end');</span>
     });
   },
 &nbsp;
@@ -861,10 +863,10 @@ Log.prototype = {
    * @api private
    */
 &nbsp;
-  log: <span class="fstat-no" title="function not covered">function(levelStr, args) {</span>
-<span class="cstat-no" title="statement not covered">    if (exports[levelStr] &lt;= this.level) {</span>
-<span class="cstat-no" title="statement not covered">      var msg = fmt.apply(null, args);</span>
-<span class="cstat-no" title="statement not covered">      this.stream.write(</span>
+  log: <span class="fstat-no" title="function not covered" >function(levelStr, args) {</span>
+<span class="cstat-no" title="statement not covered" >    if (exports[levelStr] &lt;= this.level) {</span>
+<span class="cstat-no" title="statement not covered" >      var msg = fmt.apply(null, args);</span>
+<span class="cstat-no" title="statement not covered" >      this.stream.write(</span>
           '[' + new Date + ']'
         + ' ' + levelStr
         + ' ' + msg
@@ -880,8 +882,8 @@ Log.prototype = {
    * @api public
    */
 &nbsp;
-  emergency: <span class="fstat-no" title="function not covered">function(msg){</span>
-<span class="cstat-no" title="statement not covered">    this.log('EMERGENCY', arguments);</span>
+  emergency: <span class="fstat-no" title="function not covered" >function(msg){</span>
+<span class="cstat-no" title="statement not covered" >    this.log('EMERGENCY', arguments);</span>
   },
 &nbsp;
   /**
@@ -891,8 +893,8 @@ Log.prototype = {
    * @api public
    */
 &nbsp;
-  alert: <span class="fstat-no" title="function not covered">function(msg){</span>
-<span class="cstat-no" title="statement not covered">    this.log('ALERT', arguments);</span>
+  alert: <span class="fstat-no" title="function not covered" >function(msg){</span>
+<span class="cstat-no" title="statement not covered" >    this.log('ALERT', arguments);</span>
   },
 &nbsp;
   /**
@@ -902,8 +904,8 @@ Log.prototype = {
    * @api public
    */
 &nbsp;
-  critical: <span class="fstat-no" title="function not covered">function(msg){</span>
-<span class="cstat-no" title="statement not covered">    this.log('CRITICAL', arguments);</span>
+  critical: <span class="fstat-no" title="function not covered" >function(msg){</span>
+<span class="cstat-no" title="statement not covered" >    this.log('CRITICAL', arguments);</span>
   },
 &nbsp;
   /**
@@ -913,8 +915,8 @@ Log.prototype = {
    * @api public
    */
 &nbsp;
-  error: <span class="fstat-no" title="function not covered">function(msg){</span>
-<span class="cstat-no" title="statement not covered">    this.log('ERROR', arguments);</span>
+  error: <span class="fstat-no" title="function not covered" >function(msg){</span>
+<span class="cstat-no" title="statement not covered" >    this.log('ERROR', arguments);</span>
   },
 &nbsp;
   /**
@@ -924,8 +926,8 @@ Log.prototype = {
    * @api public
    */
 &nbsp;
-  warning: <span class="fstat-no" title="function not covered">function(msg){</span>
-<span class="cstat-no" title="statement not covered">    this.log('WARNING', arguments);</span>
+  warning: <span class="fstat-no" title="function not covered" >function(msg){</span>
+<span class="cstat-no" title="statement not covered" >    this.log('WARNING', arguments);</span>
   },
 &nbsp;
   /**
@@ -935,8 +937,8 @@ Log.prototype = {
    * @api public
    */
 &nbsp;
-  notice: <span class="fstat-no" title="function not covered">function(msg){</span>
-<span class="cstat-no" title="statement not covered">    this.log('NOTICE', arguments);</span>
+  notice: <span class="fstat-no" title="function not covered" >function(msg){</span>
+<span class="cstat-no" title="statement not covered" >    this.log('NOTICE', arguments);</span>
   },
 &nbsp;
   /**
@@ -946,8 +948,8 @@ Log.prototype = {
    * @api public
    */
 &nbsp;
-  info: <span class="fstat-no" title="function not covered">function(msg){</span>
-<span class="cstat-no" title="statement not covered">    this.log('INFO', arguments);</span>
+  info: <span class="fstat-no" title="function not covered" >function(msg){</span>
+<span class="cstat-no" title="statement not covered" >    this.log('INFO', arguments);</span>
   },
 &nbsp;
   /**
@@ -957,8 +959,8 @@ Log.prototype = {
    * @api public
    */
 &nbsp;
-  debug: <span class="fstat-no" title="function not covered">function(msg){</span>
-<span class="cstat-no" title="statement not covered">    this.log('DEBUG', arguments);</span>
+  debug: <span class="fstat-no" title="function not covered" >function(msg){</span>
+<span class="cstat-no" title="statement not covered" >    this.log('DEBUG', arguments);</span>
   }
 };
 &nbsp;
@@ -969,11 +971,10 @@ Log.prototype = {
 Log.prototype.__proto__ = EventEmitter.prototype;
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 14:47:45 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 18 2017 18:17:52 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
